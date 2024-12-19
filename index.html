@@ -1,1 +1,379 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Gomes - Resume</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 40px;
+            background: white;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+            color: #2d2d2d;
+        }
+
+        .contact-info {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .company-logo {
+            width:100px;
+            height: 100px;
+            border-radius: 6px;
+        }
+
+        .job-entry {
+            margin-bottom: 40px;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .job-company {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2d2d2d;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            color: #2d2d2d;
+            margin: 5px 0;
+        }
+
+        .job-period {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .job-description {
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .tech-stack {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #2d2d2d;
+            margin: 0 0 20px 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: #eee;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #4285f4;
+            border-radius: 3px;
+        }
+
+        .interests {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            color: #666;
+        }
+
+        .education-entry {
+            margin-bottom: 25px;
+        }
+
+        .education-period {
+            color: #666;
+        }
+
+        .education-school {
+            font-weight: bold;
+            color: #2d2d2d;
+        }
+
+        .education-degree {
+            color: #666;
+        }
+
+        .project-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 6px;
+        }
+
+        .nineway-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+        }
+
+        .project-entry {
+            margin-bottom: 30px;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .project-period {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="./photo.svg" alt="João Gomes" class="profile-img">
+        <div>
+            <h1 class="name">João Gomes</h1>
+            <div class="contact-info">
+                <div>joaonunobtgomes@gmail.com</div>
+                <div>Braga, Portugal</div>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/joão-gomes-a9387912b/" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+                https://www.linkedin.com/in/joão-gomes-a9387912b/
+            </a>
+            <a href="https://github.com/joaonunogomes" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                https://github.com/joaonunogomes
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Employment</h2>
+            
+            <div class="job-entry">
+                <div class="job-header">
+                    <img src="./teya.svg" alt="Teya logo" class="company-logo">
+                    <div class="job-company">Backend Software Engineer</div>
+                </div>
+                <div class="job-period">Jan 2024 – Present</div>
+                <div class="job-title">Backend Software Engineer</div>
+                <div class="job-description">
+                    One of the most critical projects on the company, responsible by exposing Rest APIs for merchant data, to be used both by internal and external clients. Service migrated from a legacy Elixir codebase to a GoLang codebase
+                </div>
+                <div class="tech-stack">
+                    Highly available and secure system, GoLang, Gherkin, API design, AWS Kubernetes, Kafka, PostgreSQL
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-header">
+                    <img src="./farfetch.svg" alt="Farfetch logo" class="company-logo">
+                    <div class="job-company">Senior Backend Software Engineer</div>
+                </div>
+                <div class="job-period">Jan 2022 – Dez 2023</div>
+                <div class="job-title">Senior Backend Software Engineer</div>
+                <div class="job-description">
+                    System and API design for e-commerce critical areas of Checkout and Payments, integration with Payment providers. From system definition aligned with platform architects to initiative presentation to the engineering team.
+                </div>
+                <div class="tech-stack">
+                    Solution and API design of distributed, highly available and secure systems, .Net Core, C#, MongoDB, Azure Kubernetes, Jenkins
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-period">Jan 2020 – Jan 2022</div>
+                <div class="job-title">Backend Software Engineer</div>
+                <div class="job-description">
+                    Migration from a legacy monolith to a dockerized micro-services architecture, focused on Checkout and Payments boundaries, exposing these business layers on a Public Api.
+                </div>
+                <div class="tech-stack">
+                    .Net Core, C#, MongoDB, Git, Redis, API Design, Docker, Jenkins
+                </div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-period">Sep 2017 – Jan 2020</div>
+                <div class="job-title">Junior Software Engineer</div>
+                <div class="job-description">
+                    In house made CMS for all e-commerce business areas and front-office Rest APIs providing content and business rules to websites.
+                </div>
+                <div class="tech-stack">
+                    .Net Core, C#, MongoDB, Git, Redis
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+        <section>
+            <h2>Education</h2>
+            <div class="education-entry">
+                <div class="education-period">2013 – 2017</div>
+                <div class="education-school">Universidade do Minho</div>
+                <div class="education-degree">BSc in Computer Science</div>
+            </div>
+            <div class="education-entry">
+                <div class="education-period">2018</div>
+                <div class="education-school">PADI</div>
+                <div class="education-degree">Advanced Open Water Diver</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Personal projects</h2>
+            <div class="project-entry">
+                <div class="project-header">
+                    <img src="./pagurita.svg" alt="Pagurita logo" class="project-logo">
+                    <strong>Pagurita</strong>
+                </div>
+                <div class="project-period">2021 – Present</div>
+                <div class="job-description">
+                    E-commerce platform focused on long term house renting
+                </div>
+                <div class="tech-stack">
+                    Brand Definition, NextJS, .Net Core, C#, GPC, MongoDB, Redis
+                </div>
+            </div>
+
+            <div class="project-entry">
+                <div class="project-header">
+                    <img src="./9way.svg" alt="9WayClimbing logo" class="nineway-logo">
+                    <strong>9WayClimbing</strong>
+                </div>
+                <div class="project-period">2020 – Present</div>
+                <div class="job-description">
+                    Climbing App for all climbers who want to improve their performance.
+                </div>
+                <div class="tech-stack">
+                    React Native, .Net Core, C#, GPC, MongoDB, Redis
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <div>.Net core</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div>API Design</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div>System Design</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div>Docker</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div>GoLang</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Interests</h2>
+            <div class="interests">
+                <div>Rock climbing</div>
+                <div>Bodyboard</div>
+                <div>Speciality coffee</div>
+                <div>Cooking</div>
+                <section>
+                    <h2>Interests</h2>
+                    <div class="interests">
+                        <div>Rock climbing</div>
+                        <div>Bodyboard</div>
+                        <div>Speciality coffee</div>
+                        <div>Cooking</div>
+                        <div>Travel</div>
+                    </div>
+                </section>
+            </aside>
+        </body>
+        </html>
