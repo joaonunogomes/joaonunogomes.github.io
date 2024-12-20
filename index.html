@@ -62,6 +62,8 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-link {
@@ -69,20 +71,36 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transform: scale(1.02);
         }
 
         .social-link-icon {
             color: rgba(33, 33, 33, 1);
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
         }
 
         .social-link-text {
             color: rgba(33, 33, 33, 0.8);
             font-weight: bold;
+            flex-basis: calc(100% - 50px);
+            font-size: 1em !important;
         }
 
         .company-logo {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height:45px;
             border-radius: 6px;
             padding: 0;
         }
@@ -194,9 +212,10 @@
             color: #666;
         }
 
-        .project-logo {
-            width: 60px;
-            height: 60px;
+
+        .pagurita-logo {
+            width: 100px;
+            height: 45px;
             border-radius: 6px;
         }
 
@@ -222,6 +241,14 @@
             font-weight: bold;
         }
 
+        .header .name {
+            font-size: 1.8em !important;
+        }
+
+        .header .contact-info {
+            font-size: 1.1em !important;
+        }
+
         @media only screen and (max-width: 768px) {
             body {
                 grid-template-columns: 1fr;
@@ -238,26 +265,25 @@
 
             .profile-img {
                 margin: 0 auto;
+                width: 80px;
+                height: 80px;
             }
 
             .social-links {
                 align-items: center;
+                flex-direction: row;
+                justify-content: center;
+                gap: 5px; /* reduce the gap */
             }
 
             .social-link {
                 font-size: 0.9em;
+                min-width: auto;
+                width: auto; /* remove fixed width constraints */
             }
 
             .social-link-text {
-                font-size: 0.8em;
-            }
-
-            .name {
-                font-size: 1.5em;
-            }
-
-            .contact-info {
-                font-size: 0.9em;
+                font-size: 1em !important;
             }
 
             .job-description ul {
@@ -266,6 +292,19 @@
 
             .interests {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+            .social-link-icon.linkedin {
+                content: url('https://in.pinterest.com/pin/linkedin-icon-linkedin-icons-linkedin-logo-png-and-vector-with-transparent-background-for-free-download--630292910349512155/');
+                width: 50px;
+                height: 50px;
+            }
+            .social-link-icon.github {
+                content: url('https://pngimg.com/image/73355');
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -283,18 +322,16 @@
         </div>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/joão-gomes-a9387912b/" class="social-link">
-                <svg class="social-link-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <svg class="social-link-icon linkedin" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
                 </svg>
-                <span class="social-link-text">https://www.linkedin.com/in/joão-gomes-a9387912b/</span>
             </a>
             <a href="https://github.com/joaonunogomes" class="social-link">
-                <svg class="social-link-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <svg class="social-link-icon github" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
                     <path
                         d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                 </svg>
-                <span class="social-link-text">https://github.com/joaonunogomes</span>
             </a>
         </div>
     </header>
@@ -305,10 +342,10 @@
 
             <div class="job-entry">
                 <div class="job-header">
-                    <div class="job-title">Backend Software Engineer</div>
                     <div class="job-header-content">
                         <img src="./teya.svg" alt="Teya logo" class="company-logo">
                     </div>
+                    <div class="job-title">Backend Software Engineer</div>
                 </div>
                 <div class="job-period">Jan 2024 – Present</div>
                 <div class="job-description">
@@ -323,12 +360,14 @@
 
             <div class="job-entry">
                 <div class="job-header">
-                    <div class="job-title">Senior Backend Software Engineer</div>
                     <div class="job-header-content">
                         <img src="./farfetch.svg" alt="Farfetch logo" class="company-logo">
                     </div>
+                    <div class="job-title">Senior Backend Software Engineer</div>
                 </div>
-                <div class="job-period">Jan 2022 – Dez 2023</div>
+                <div class="job-period">
+                    Jan 2022 – Dez 2023
+                </div>
                 <div class="job-description">
                     <ul>
                         <li>System and Public API design for checkout and payments boundaries of high availability
@@ -402,7 +441,7 @@
             <h2>Personal projects</h2>
             <div class="project-entry">
                 <div class="project-header">
-                    <img src="./pagurita.svg" alt="Pagurita logo" class="project-logo">
+                    <img src="./pagurita.svg" alt="Pagurita logo" class="pagurita-logo">
                     <strong>Pagurita</strong>
                 </div>
                 <div class="project-period">2021 – Present</div>
