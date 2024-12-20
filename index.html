@@ -78,6 +78,7 @@
             width: 100px;
             height: 100px;
             border-radius: 6px;
+            padding: 0;
         }
 
         .job-entry {
@@ -86,21 +87,20 @@
 
         .job-header {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
         }
 
-        .job-company {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2d2d2d;
+        .job-header-content {
+            display: flex;
+            align-items: center;
+            gap: 0;
         }
+
 
         .job-title {
             font-size: 1.1em;
             color: rgba(33, 33, 33, 1);
             font-weight: bold;
-            margin: 5px 0;
         }
 
         .job-period {
@@ -263,11 +263,12 @@
 
             <div class="job-entry">
                 <div class="job-header">
-                    <img src="./teya.svg" alt="Teya logo" class="company-logo">
-                    <div class="job-company">Backend Software Engineer</div>
+                    <div class="job-title">Backend Software Engineer</div>
+                    <div class="job-header-content">
+                        <img src="./teya.svg" alt="Teya logo" class="company-logo">
+                    </div>
                 </div>
                 <div class="job-period">Jan 2024 – Present</div>
-                <div class="job-title">Backend Software Engineer</div>
                 <div class="job-description">
                     One of the most critical projects on the company, responsible by exposing Rest APIs for merchant
                     data, to be used both by internal and external clients. Service migrated from a legacy Elixir
@@ -280,11 +281,12 @@
 
             <div class="job-entry">
                 <div class="job-header">
-                    <img src="./farfetch.svg" alt="Farfetch logo" class="company-logo">
-                    <div class="job-company">Senior Backend Software Engineer</div>
+                    <div class="job-title">Senior Backend Software Engineer</div>
+                    <div class="job-header-content">
+                        <img src="./farfetch.svg" alt="Farfetch logo" class="company-logo">
+                    </div>
                 </div>
                 <div class="job-period">Jan 2022 – Dez 2023</div>
-                <div class="job-title">Senior Backend Software Engineer</div>
                 <div class="job-description">
                     <ul>
                         <li>System and Public API design for checkout and payments boundaries of high availability
@@ -313,8 +315,10 @@
             </div>
 
             <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Backend Software Engineer</div>
+                </div>
                 <div class="job-period">Jan 2020 – Jan 2022</div>
-                <div class="job-title">Backend Software Engineer</div>
                 <div class="job-description">
                     Migration from a legacy monolith to a dockerized micro-services architecture, focused on Checkout
                     and Payments boundaries, exposing these business layers on a Public Api.
@@ -325,8 +329,10 @@
             </div>
 
             <div class="job-entry">
+                <div class="job-header">
+                    <div class="job-title">Junior Software Engineer</div>
+                </div>
                 <div class="job-period">Sep 2017 – Jan 2020</div>
-                <div class="job-title">Junior Software Engineer</div>
                 <div class="job-description">
                     In house made CMS for all e-commerce business areas and front-office Rest APIs providing content and
                     business rules to websites.
