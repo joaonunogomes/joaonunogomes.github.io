@@ -162,6 +162,63 @@
             font-weight: 200;
         }
 
+        .company-group {
+            margin-bottom: 30px;
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .company-tenure {
+            color: rgba(33, 33, 33, 0.5);
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+
+        .company-roles {
+            padding-left: 22px;
+            margin-left: 10px;
+            border-left: 2px solid #e3e7ef;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .role-entry {
+            position: relative;
+        }
+
+        .role-entry::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 7px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #4285f4;
+        }
+
+        .role-entry .job-title {
+            font-size: 1.05em;
+        }
+
+        .role-entry .job-period {
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
         h2 {
             font-size: 1.5em;
             color: #2d2d2d;
@@ -490,6 +547,42 @@
             margin-bottom: 14px;
         }
 
+        body.is-exporting .company-group {
+            margin-bottom: 16px;
+        }
+
+        body.is-exporting .company-header {
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        body.is-exporting .company-tenure {
+            font-size: 0.85em;
+        }
+
+        body.is-exporting .company-roles {
+            padding-left: 16px;
+            margin-left: 8px;
+            gap: 14px;
+        }
+
+        body.is-exporting .role-entry::before {
+            left: -22px;
+            top: 5px;
+            width: 7px;
+            height: 7px;
+            border-width: 2px;
+        }
+
+        body.is-exporting .role-entry .job-title {
+            font-size: 1em;
+        }
+
+        body.is-exporting .role-entry .job-period {
+            font-size: 0.85em;
+            margin-bottom: 4px;
+        }
+
         body.is-exporting .job-description {
             margin: 6px 0;
         }
@@ -634,136 +727,124 @@
 
     <main>
         <section>
-            <h2>Employment</h2>
+            <h2>Work experience</h2>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/teya.svg" alt="Teya logo" class="company-logo">
+            <div class="company-group">
+                <div class="company-header">
+                    <img src="./images/teya.svg" alt="Teya logo" class="company-logo">
+                    <div class="company-info">
+                        <div class="company-tenure">Jan 2024 – Present · 2 yrs 6 mos</div>
                     </div>
-                    <div class="job-title">Senior Backend Software Engineer</div>
                 </div>
-                <div class="job-period">Apr 2025 – Present</div>
-                <div class="job-description">
-                    <ul>
-                    <li>
-                        Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
-                    </li>
-                    <li>
-                        Drove API modernisation and migration work, retiring legacy patterns and defining clearer contracts for service consumers.
-                    </li>
-                    <li>
-                        Delivered complex backend features across authorisation, data consistency and platform integrations in a high-ownership environment.
-                    </li>
-                    <li>
-                        Improved reliability and operational readiness through performance analysis, observability improvements and incident-focused engineering work.
-                    </li>
-                    <li>
-                        Provided technical guidance across backend initiatives, helping the team navigate ambiguity, align on implementation approaches and maintain engineering quality.
-                    </li>
-                    <li>
-                        Helped the team to shape our ways of working by improving ownership, collaboration and operational processes across delivery and support work.
-                    </li>
-                    <li>
-                        Contributed to technical hiring through coding and system design interviews, structured candidate feedback and interview calibrations.
-                    </li>
-                    </ul>
-                </div>
-                <div class="tech-stack">
-                    ReBAC, SpiceDb, GoLang, Gherkin, API design, Kafka, PostgreSQL
+                <div class="company-roles">
+                    <div class="role-entry">
+                        <div class="job-title">Senior Backend Software Engineer</div>
+                        <div class="job-period">Apr 2025 – Present</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
+                                </li>
+                                <li>
+                                    Drove API modernisation and migration work, retiring legacy patterns and defining clearer contracts for service consumers.
+                                </li>
+                                <li>
+                                    Delivered complex backend features across authorisation, data consistency and platform integrations in a high-ownership environment.
+                                </li>
+                                <li>
+                                    Improved reliability and operational readiness through performance analysis, observability improvements and incident-focused engineering work.
+                                </li>
+                                <li>
+                                    Provided technical guidance across backend initiatives, helping the team navigate ambiguity, align on implementation approaches and maintain engineering quality.
+                                </li>
+                                <li>
+                                    Helped the team to shape our ways of working by improving ownership, collaboration and operational processes across delivery and support work.
+                                </li>
+                                <li>
+                                    Contributed to technical hiring through coding and system design interviews, structured candidate feedback and interview calibrations.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            ReBAC, SpiceDb, GoLang, Gherkin, API design, Kafka, PostgreSQL, Prometheus 
+                        </div>
+                    </div>
+
+                    <div class="role-entry">
+                        <div class="job-title">Backend Software Engineer</div>
+                        <div class="job-period">Jan 2024 – Apr 2025</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Drove the design and definition of the application authorization model for service whitelisting
+                                    collaborating with other teams to ensure a unified and long-term approach.
+                                </li>
+                                <li>
+                                    Contributed to a successful migration of a critical company project for both internal and external clients,
+                                    improving performance and maintainability by transitioning to GoLang, from a legacy Elixir
+                                    codebase.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            ReBAC, GoLang, Gherkin, API design, Kafka, PostgreSQL
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/teya.svg" alt="Teya logo" class="company-logo">
+            <div class="company-group">
+                <div class="company-header">
+                    <img src="./images/farfetch.svg" alt="Farfetch logo" class="company-logo">
+                    <div class="company-info">
+                        <div class="company-tenure">Sep 2017 – Dec 2023 · 6 yrs 4 mos</div>
                     </div>
-                    <div class="job-title">Backend Software Engineer</div>
                 </div>
-                <div class="job-period">Jan 2024 – Apr 2025</div>
-                <div class="job-description">
-                    <ul>
-                        <li>
-                            Drove the design and definition of the application authorization model for service whitelisting
-                            collaborating with other teams to ensure a unified and long-term approach. </li>
-                        <li>
-                            Successfully migrated a critical company project for both internal and external clients,
-                            improving performance and maintainability by transitioning to GoLang, from a legacy Elixir
-                            codebase.
-                        </li>
-                    </ul>
-                </div>
-                <div class="tech-stack">
-                    ReBAC, GoLang, Gherkin, API design, Kafka, PostgreSQL
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/farfetch.svg" alt="Farfetch logo" class="company-logo">
+                <div class="company-roles">
+                    <div class="role-entry">
+                        <div class="job-title">Senior Backend Software Engineer</div>
+                        <div class="job-period">Jan 2022 – Dec 2023</div>
+                        <div class="job-description">
+                            <ul>
+                                <li>System and Public API design for checkout and payments boundaries of high availability
+                                    micro-services</li>
+                                <li>Definition of business and tech initiatives alongside tech lead and product manager</li>
+                                <li>Integration with third party payment providers</li>
+                                <li>Implementation of Jenkins declarative CI/CD pipelines</li>
+                                <li>Participation in cross team initiatives such as the breakdown of legacy monolithic service,
+                                    API gateway and authentication gateway</li>
+                                <li>Team members guidance and onboarding of newcomers</li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            Solution and API design of distributed, highly available and secure systems, .Net Core, C#,
+                            MongoDB, Azure Kubernetes, Jenkins
+                        </div>
                     </div>
-                    <div class="job-title">Senior Backend Software Engineer</div>
-                </div>
-                <div class="job-period">
-                    Jan 2022 – Dez 2023
-                </div>
-                <div class="job-description">
-                    <ul>
-                        <li>System and Public API design for checkout and payments boundaries of high availability
-                            micro-services</li>
-                        <li> Definition of business and tech initiatives alongside tech lead and product manager
-                        </li>
-                        <li> Integration with third party payment providers
-                        </li>
-                        <li> Implementation of Jenkins declarative CI/CD pipelines
-                        </li>
-                        <li> Participation in cross team initiatives such as the breakdown of legacy monolithic service,
-                            API gateway and authentication gateway
-                        </li>
-                        <li> Team members guidance and onboarding of newcomers
-                        </li>
-                    </ul>
-                </div>
-                <div class="tech-stack">
-                    Solution and API design of distributed, highly available and secure systems, .Net Core, C#,
-                    MongoDB, Azure Kubernetes, Jenkins
-                </div>
 
-            </div>
-
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/farfetch.svg" alt="Farfetch logo" class="company-logo">
+                    <div class="role-entry">
+                        <div class="job-title">Backend Software Engineer</div>
+                        <div class="job-period">Jan 2020 – Jan 2022</div>
+                        <div class="job-description">
+                            Migration from a legacy monolith to a dockerized micro-services architecture, focused on Checkout
+                            and Payments boundaries, exposing these business layers on a Public Api.
+                        </div>
+                        <div class="tech-stack">
+                            .Net Core, C#, MongoDB, Git, Redis, API Design, Docker, Jenkins
+                        </div>
                     </div>
-                    <div class="job-title">Backend Software Engineer</div>
-                </div>
-                <div class="job-period">Jan 2020 – Jan 2022</div>
-                <div class="job-description">
-                    Migration from a legacy monolith to a dockerized micro-services architecture, focused on Checkout
-                    and Payments boundaries, exposing these business layers on a Public Api.
-                </div>
-                <div class="tech-stack">
-                    .Net Core, C#, MongoDB, Git, Redis, API Design, Docker, Jenkins
-                </div>
-            </div>
 
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/farfetch.svg" alt="Farfetch logo" class="company-logo">
+                    <div class="role-entry">
+                        <div class="job-title">Junior Software Engineer</div>
+                        <div class="job-period">Sep 2017 – Jan 2020</div>
+                        <div class="job-description">
+                            In house made CMS for all e-commerce business areas and front-office Rest APIs providing content and
+                            business rules to websites.
+                        </div>
+                        <div class="tech-stack">
+                            .Net Core, C#, MongoDB, Git, Redis
+                        </div>
                     </div>
-                    <div class="job-title">Junior Software Engineer</div>
-                </div>
-                <div class="job-period">Sep 2017 – Jan 2020</div>
-                <div class="job-description">
-                    In house made CMS for all e-commerce business areas and front-office Rest APIs providing content and
-                    business rules to websites.
-                </div>
-                <div class="tech-stack">
-                    .Net Core, C#, MongoDB, Git, Redis
                 </div>
             </div>
         </section>
@@ -803,7 +884,7 @@
                     </div>
                     <div class="job-title">Pagurita</div>
                 </div>
-                <div class="job-period">2021 – Present</div>
+                <div class="job-period">2021 – 2023</div>
                 <div class="job-description">
                     E-commerce platform focused on long term house renting
                 </div>
