@@ -548,11 +548,11 @@
         }
 
         body.is-exporting .company-group {
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         body.is-exporting .company-header {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             gap: 10px;
         }
 
@@ -563,7 +563,7 @@
         body.is-exporting .company-roles {
             padding-left: 16px;
             margin-left: 8px;
-            gap: 14px;
+            gap: 10px;
         }
 
         body.is-exporting .role-entry::before {
@@ -584,7 +584,7 @@
         }
 
         body.is-exporting .job-description {
-            margin: 6px 0;
+            margin: 4px 0;
         }
 
         body.is-exporting .job-description ul {
@@ -593,7 +593,7 @@
         }
 
         body.is-exporting .job-description li {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         body.is-exporting .company-logo {
@@ -635,9 +635,21 @@
         }
 
         body.is-exporting .skill-item,
-        body.is-exporting .job-description li {
+        body.is-exporting .job-description li,
+        body.is-exporting .tech-stack,
+        body.is-exporting .company-header {
             page-break-inside: avoid !important;
             break-inside: avoid !important;
+        }
+
+        body.is-exporting .company-header {
+            page-break-after: avoid !important;
+            break-after: avoid !important;
+        }
+
+        body.is-exporting .tech-stack {
+            page-break-before: avoid !important;
+            break-before: avoid !important;
         }
 
         body.is-exporting a {
@@ -766,7 +778,7 @@
                             </ul>
                         </div>
                         <div class="tech-stack">
-                            ReBAC, SpiceDb, GoLang, Gherkin, API design, Kafka, PostgreSQL, Prometheus 
+                            ReBAC, SpiceDb, GoLang, Gherkin, API design, Kafka, PostgreSQL, Prometheus
                         </div>
                     </div>
 
@@ -1181,7 +1193,7 @@
                             },
                             pagebreak: {
                                 mode: ['css', 'legacy'],
-                                avoid: '.skill-item'
+                                avoid: ['.skill-item', '.tech-stack', '.company-header']
                             }
                         })
                         .from(document.body)
