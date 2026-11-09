@@ -3,1336 +3,387 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="light">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>João Gomes – Senior Backend Software Engineer</title>
-    <meta name="description" content="CV of João Gomes, Senior Backend Software Engineer in Braga, Portugal. 8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
+    <title>João Gomes – Portfolio</title>
+    <meta name="description" content="Portfolio of João Gomes, Senior Backend Software Engineer. Personal projects including Farol, a file-based API testing client.">
     <meta name="author" content="João Gomes">
     <link rel="canonical" href="https://joaonunogomes.github.io/">
     <link rel="icon" type="image/svg+xml" href="./images/photo.svg">
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="João Gomes – Senior Backend Software Engineer">
-    <meta property="og:description" content="8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="João Gomes – Portfolio">
+    <meta property="og:description" content="Personal projects by João Gomes, including Farol, a self-hosted file-based API testing client.">
     <meta property="og:url" content="https://joaonunogomes.github.io/">
     <meta property="og:image" content="https://joaonunogomes.github.io/images/photo.svg">
-    <meta property="og:locale" content="en_GB">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="João Gomes – Senior Backend Software Engineer">
-    <meta name="twitter:description" content="8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
+    <meta name="twitter:title" content="João Gomes – Portfolio">
+    <meta name="twitter:description" content="Personal projects by João Gomes, including Farol, a self-hosted file-based API testing client.">
     <style>
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --text: #1f1f24;
+            --muted: #6b6b76;
+            --border: #e6e6ea;
+            --accent: #2563eb;
+            --accent-soft: #eaf0fe;
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0 auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 40px;
-            background: white;
-            color: #333;
-            line-height: 1.5;
-            max-width: 1200px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             font-size: 16px;
         }
 
-        .header {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 20px;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+        main {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 56px 16px 64px;
         }
 
-        .profile-img {
-            width: 150px !important;
-            height: 150px !important;
-            border-radius: 12px;
-            object-fit: cover;
-        }
-
-        .name {
-            font-size: 1.8em;
-            font-weight: bold;
-            margin: 0;
-            color: #2d2d2d;
-        }
-
-        .contact-info {
-            color: rgba(33, 33, 33, 0.5);
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-top: 10px;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-
-        .social-link:hover {
-            background-color: #f0f0f0;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transform: scale(1.02);
-        }
-
-        .social-link-icon {
-            color: rgba(33, 33, 33, 1);
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
-        }
-
-
-        .social-link-text {
-            color: rgba(33, 33, 33, 0.8);
-            font-weight: bold;
-            flex-basis: calc(100% - 50px);
-            font-size: 1em !important;
-        }
-
-        .summary {
-            grid-column: 1 / -1;
-            margin-bottom: 10px;
-        }
-
-        .summary p {
-            color: rgba(33, 33, 33, 0.6);
-            font-weight: bold;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .company-logo {
-            width: 90px;
-            height: 45px;
-            border-radius: 6px;
-            padding: 0;
-        }
-
-        .job-entry {
-            margin-bottom: 30px;
-        }
-
-        .job-header {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .job-header-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .job-title {
-            font-size: 1.1em;
-            color: rgba(33, 33, 33, 1);
-            font-weight: bold;
-        }
-
-        .job-period {
-            color: rgba(33, 33, 33, 0.5);
-            font-weight: bold;
-        }
-
-        .job-description {
-            color: rgba(33, 33, 33, 0.6);
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        .job-description ul {
-            list-style-position: inside;
-            padding-left: 0;
-        }
-
-        .tech-stack {
-            color: rgba(33, 33, 33, 0.5);
-            font-size: 0.9em;
-            font-style: italic;
-            font-weight: 200;
-        }
-
-        .company-group {
-            margin-bottom: 30px;
-        }
-
-        /* Placeholders for metrics still to be filled in. Remove once replaced. */
-        mark.todo {
-            background: #fff3bf;
-            color: #7a5a00;
-            border-radius: 3px;
-            padding: 0 3px;
-        }
-
-        body.is-exporting mark.todo {
-            background: transparent;
+        a {
             color: inherit;
+            text-decoration: none;
         }
 
-        .company-header {
+        /* Header */
+        .hero {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-
-        .company-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .company-tenure {
-            color: rgba(33, 33, 33, 0.5);
-            font-weight: bold;
-            font-size: 0.95em;
-        }
-
-        .company-roles {
-            padding-left: 22px;
-            margin-left: 10px;
-            border-left: 2px solid #e3e7ef;
-            display: flex;
-            flex-direction: column;
             gap: 24px;
+            margin-bottom: 48px;
         }
 
-        .role-entry {
-            position: relative;
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: var(--shadow);
         }
 
-        .role-entry::before {
-            content: '';
-            position: absolute;
-            left: -29px;
-            top: 7px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid #4285f4;
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
-        .role-entry .job-title {
-            font-size: 1.05em;
+        .hero p {
+            color: var(--muted);
+            margin-top: 6px;
+            font-size: 1.05rem;
         }
 
-        .role-entry .job-period {
-            margin-bottom: 6px;
-            font-size: 0.95em;
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            flex-wrap: wrap;
         }
 
+        .social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .social:hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .social img {
+            height: 16px;
+            width: auto;
+        }
+
+
+        /* Sections */
         h2 {
-            font-size: 1.5em;
-            color: #2d2d2d;
-            margin: 0 0 20px 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 16px;
         }
 
-        .skills-list {
+        section + section {
+            margin-top: 48px;
+        }
+
+        /* Featured card */
+        .featured {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 28px;
+            align-items: center;
+            padding: 32px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .featured:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .featured img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+        }
+
+        .featured h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 8px;
+            border-radius: 999px;
+        }
+
+        .featured p {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 18px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .cta::after {
+            content: "→";
+            transition: transform 0.2s;
+        }
+
+        .featured:hover .cta::after {
+            transform: translateX(4px);
+        }
+
+        /* Project grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
             display: flex;
             flex-direction: column;
-            gap: 14px;
-            margin-bottom: 30px;
+            gap: 12px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: border-color 0.2s, transform 0.2s;
         }
 
-        .skill-group-title {
-            color: rgba(33, 33, 33, 0.55);
-            font-size: 0.8em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 6px;
+        a.card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        .skill-tags {
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-head img {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 650;
+        }
+
+        .period {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            flex: 1;
+        }
+
+        .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
         }
 
-        .skill-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 999px;
-            background: #f1f3f7;
-            color: #2d2d2d;
-            font-size: 0.85em;
-            font-weight: 600;
-            line-height: 1.4;
-            white-space: nowrap;
-        }
-
-        .interests {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .interests-item {
-            color: rgba(33, 33, 33, 0.5);
-            font-weight: bolder;
-        }
-
-        .pagurita-logo {
-            width: 140px;
-            height: 50px;
+        .tag {
+            font-size: 0.75rem;
+            padding: 3px 8px;
             border-radius: 6px;
-            /* background-color: #2d2d2d; */
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--muted);
         }
 
-        .nineway-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
+        footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.85rem;
         }
 
-        .project-entry {
-            margin-bottom: 25px;
-        }
+        @media (max-width: 600px) {
+            main {
+                padding-top: 40px;
+            }
 
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
 
-        .project-details {
-            display: flex;
-            align-items: center;
-        }
-
-        .project-name {
-            font-weight: bold;
-            color: rgba(33, 33, 33, 0.5);
-        }
-
-        .project-period {
-            color: rgba(33, 33, 33, 0.5);
-            font-weight: bold;
-        }
-
-        .project-header img {
-            margin-right: 0;
-            /* Remove the margin */
-        }
-
-        .header .name {
-            font-size: 1.8em !important;
-        }
-
-        .header .contact-info {
-            font-size: 1.1em !important;
-        }
-
-        @media only screen and (max-width: 768px) {
-            body {
+            .featured {
                 grid-template-columns: 1fr;
-                padding: 15px;
-                font-size: 14px;
-                gap: 20px;
+                padding: 24px;
             }
 
-            .header {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 15px;
+            .featured img {
+                width: 88px;
+                height: 88px;
+                border-radius: 18px;
             }
-
-            .profile-img {
-                margin: 0 auto;
-                width: 80px;
-                height: 80px;
-            }
-
-            .social-links {
-                align-items: center;
-                flex-direction: row;
-                justify-content: center;
-                gap: 5px;
-                /* reduce the gap */
-            }
-
-            .social-link {
-                font-size: 0.9em;
-                min-width: auto;
-                width: auto;
-                /* remove fixed width constraints */
-            }
-
-            .social-link-text {
-                font-size: 1em !important;
-            }
-
-            .job-description ul {
-                padding-left: 20px;
-            }
-
-            .interests {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media only screen and (min-width: 769px) {
-            .social-link-icon {
-                display: none;
-            }
-
-            .github-icon-large {
-                display: inline-block;
-                width: 120px;
-                /* Increase the size */
-                height: 40px;
-                /* Increase the size */
-                transition: transform 0.3s;
-            }
-
-            .linkedin-icon-large {
-                display: inline-block;
-                width: 150px;
-                /* Increase the size */
-                height: 40px;
-                /* Increase the size */
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .github-icon-large {
-                display: none;
-            }
-
-            .linkedin-icon-large {
-                display: none;
-            }
-        }
-
-        .download-cv {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 18px;
-            background: #2d2d2d;
-            color: #fff;
-            border: none;
-            border-radius: 999px;
-            font-family: inherit;
-            font-size: 0.95em;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-            z-index: 1000;
-        }
-
-        .download-cv:hover {
-            background: #4285f4;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
-        }
-
-        .download-cv:disabled {
-            opacity: 0.6;
-            cursor: progress;
-        }
-
-        .download-cv svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .social-link-url {
-            display: none;
-        }
-
-        /*
-         * Print. The export JS toggles `is-exporting` on beforeprint/afterprint,
-         * so every body.is-exporting rule below also applies to Cmd+P / Save as PDF.
-         * This block holds what only the browser's own print path needs.
-         */
-        @page {
-            size: A4 portrait;
-            margin: 12mm;
-        }
-
-        @media print {
-            html, body {
-                background: #fff;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .download-cv,
-            #cv-export-overlay {
-                display: none !important;
-            }
-
-            body {
-                padding: 0 !important;
-                max-width: none !important;
-            }
-
-            a {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            p, li {
-                orphans: 3;
-                widows: 3;
-            }
-
-            h2 {
-                break-after: avoid;
-                page-break-after: avoid;
-            }
-
-            .company-header,
-            .role-entry .job-title,
-            .job-header {
-                break-after: avoid;
-                page-break-after: avoid;
-            }
-
-            .skill-group,
-            .job-entry,
-            .tech-stack,
-            .job-description li {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .social-link:hover {
-                background: none;
-                box-shadow: none;
-                transform: none;
-            }
-        }
-
-        body.is-exporting {
-            padding: 20px !important;
-            margin: 0 auto !important;
-            max-width: 1000px !important;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) !important;
-            gap: 24px !important;
-            font-size: 10.5pt;
-            line-height: 1.45;
-        }
-
-        body.is-exporting > main,
-        body.is-exporting > aside {
-            min-width: 0;
-            overflow-wrap: break-word;
-        }
-
-        body.is-exporting .download-cv {
-            display: none !important;
-        }
-
-        body.is-exporting .header {
-            padding-bottom: 14px;
-            margin-bottom: 14px;
-            gap: 18px;
-        }
-
-        body.is-exporting .summary {
-            margin-bottom: 6px;
-        }
-
-        body.is-exporting .profile-img {
-            width: 100px !important;
-            height: 100px !important;
-            object-fit: cover;
-        }
-
-        body.is-exporting .name {
-            font-size: 1.7em;
-        }
-
-        body.is-exporting .contact-info {
-            font-size: 1em;
-            margin-top: 6px;
-        }
-
-        body.is-exporting .social-link-icon,
-        body.is-exporting .github-icon-large,
-        body.is-exporting .linkedin-icon-large {
-            display: none !important;
-        }
-
-        body.is-exporting .social-links {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            gap: 8px;
-        }
-
-        body.is-exporting .social-link {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 12px;
-            width: auto;
-            max-width: none;
-            background: #f5f7fb;
-            border: 1px solid #e3e7ef;
-            border-left: 3px solid #4285f4;
-            border-radius: 6px;
-            text-decoration: none;
-        }
-
-        body.is-exporting .social-link-url {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: flex-start;
-            line-height: 1.2;
-        }
-
-        body.is-exporting .social-link-label {
-            font-size: 0.65em;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: rgba(33, 33, 33, 0.55);
-            font-weight: bold;
-        }
-
-        body.is-exporting .social-link-address {
-            font-size: 0.9em;
-            color: #2d2d2d;
-            font-weight: bold;
-        }
-
-        body.is-exporting h2 {
-            font-size: 1.25em;
-            margin-bottom: 12px;
-        }
-
-        body.is-exporting .job-entry {
-            margin-bottom: 14px;
-        }
-
-        body.is-exporting .company-group {
-            margin-bottom: 10px;
-        }
-
-        body.is-exporting .company-header {
-            margin-bottom: 6px;
-            gap: 10px;
-        }
-
-        body.is-exporting .company-tenure {
-            font-size: 0.85em;
-        }
-
-        body.is-exporting .company-roles {
-            padding-left: 16px;
-            margin-left: 8px;
-            gap: 10px;
-        }
-
-        body.is-exporting .role-entry::before {
-            left: -22px;
-            top: 5px;
-            width: 7px;
-            height: 7px;
-            border-width: 2px;
-        }
-
-        body.is-exporting .role-entry .job-title {
-            font-size: 1em;
-        }
-
-        body.is-exporting .role-entry .job-period {
-            font-size: 0.85em;
-            margin-bottom: 4px;
-        }
-
-        body.is-exporting .job-description {
-            margin: 4px 0;
-        }
-
-        body.is-exporting .job-description ul {
-            padding-left: 18px;
-            list-style-position: outside;
-        }
-
-        body.is-exporting .job-description li {
-            margin-bottom: 2px;
-        }
-
-        body.is-exporting .company-logo {
-            width: auto !important;
-            height: auto !important;
-            max-width: 95px;
-            max-height: 28px;
-            object-fit: contain;
-            object-position: left center;
-            border-radius: 0 !important;
-        }
-
-        body.is-exporting .pagurita-logo {
-            width: auto !important;
-            height: auto !important;
-            max-width: 120px;
-            max-height: 32px;
-            object-fit: contain;
-            object-position: left center;
-        }
-
-        body.is-exporting .nineway-logo {
-            width: 28px !important;
-            height: 28px !important;
-            object-fit: contain;
-        }
-
-        body.is-exporting .skills-list {
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        body.is-exporting .skill-tag {
-            padding: 1px 7px;
-            font-size: 8.5pt;
-            border: 1px solid #d9dee8;
-            background: #f5f7fa;
-        }
-
-        body.is-exporting .skill-group,
-        body.is-exporting .job-description li,
-        body.is-exporting .tech-stack,
-        body.is-exporting .company-header {
-            page-break-inside: avoid !important;
-            break-inside: avoid !important;
-        }
-
-        body.is-exporting .company-header {
-            page-break-after: avoid !important;
-            break-after: avoid !important;
-        }
-
-        body.is-exporting .tech-stack {
-            page-break-before: avoid !important;
-            break-before: avoid !important;
-        }
-
-        body.is-exporting a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        #cv-export-overlay {
-            position: fixed;
-            inset: 0;
-            background: #ffffff;
-            z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            color: #2d2d2d;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.5;
-        }
-
-        #cv-export-overlay .cv-spinner {
-            width: 36px;
-            height: 36px;
-            border: 3px solid #e3e7ef;
-            border-top-color: #4285f4;
-            border-radius: 50%;
-            animation: cv-spin 0.9s linear infinite;
-        }
-
-        #cv-export-overlay .cv-spinner-label {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #2d2d2d;
-        }
-
-        @keyframes cv-spin {
-            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 
 <body>
-    <header class="header">
-        <img src="./images/photo.svg" alt="João Gomes" class="profile-img">
-        <div>
-            <h1 class="name">João Gomes</h1>
-            <div class="contact-info">
-                <div>joaonunobtgomes@gmail.com</div>
-                <div>Braga, Portugal</div>
-            </div>
-        </div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/joão-gomes-a9387912b/" class="social-link">
-                <svg class="social-link-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-                </svg>
-                <img src="./images/linkedin.svg" alt="LinkedIn" class="linkedin-icon-large">
-                <span class="social-link-url">
-                    <span class="social-link-label">LinkedIn</span>
-                    <span class="social-link-address">linkedin.com/in/joão-gomes-a9387912b</span>
-                </span>
-            </a>
-            <a href="https://github.com/joaonunogomes" class="social-link">
-                <svg class="social-link-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-                <img src="./images/github.svg" alt="GitHub" class="github-icon-large">
-                <span class="social-link-url">
-                    <span class="social-link-label">GitHub</span>
-                    <span class="social-link-address">github.com/joaonunogomes</span>
-                </span>
-            </a>
-        </div>
-    </header>
-
-    
-    <section class="summary">
-        <h2>Summary</h2>
-        <p>Senior Software Engineer with 8+ years of experience designing and delivering backend systems, APIs and operational tooling in complex product environments. 
-            I focus on building reliable, scalable solutions, improving system consistency, and turning ambiguous requirements into clear technical implementations. My work spans API design, authorisation models, distributed event-driven systems and incident response — always with a strong emphasis on ownership, pragmatism and delivery. 
-            Equally comfortable mentoring teammates, contributing to hiring, and partnering closely with product to shape technical direction.</p>
-    </section>
-
     <main>
-        <section>
-            <h2>Work experience</h2>
-
-            <div class="company-group">
-                <div class="company-header">
-                    <img src="./images/teya.svg" alt="Teya logo" class="company-logo">
-                    <div class="company-info">
-                        <div class="company-tenure" data-start="2024-01">Jan 2024 – Present · <span class="tenure-duration">2 yrs 6 mos</span></div>
-                    </div>
-                </div>
-                <div class="company-roles">
-                    <div class="role-entry">
-                        <div class="job-title">Senior Backend Software Engineer</div>
-                        <div class="job-period">Apr 2025 – Present</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>
-                                    Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
-                                </li>
-                                <li>
-                                </li>
-                                <li>
-                                    Cut <mark class="todo">[p99 latency / error rate / incident count]</mark> by
-                                    <mark class="todo">[X%]</mark> through performance analysis, targeted observability
-                                    (Prometheus dashboards and alerts) and follow-through on incident actions.
-                                </li>
-                                <li>
-                                    Act as technical reference for the team: drive design reviews, unblock ambiguous work and
-                                    mentor <mark class="todo">[N]</mark> engineers; introduced
-                                    <mark class="todo">[a process, e.g. on-call rotation / ADRs]</mark> that is now the team default.
-                                </li>
-                                <li>
-                                    Run coding and system-design interviews (<mark class="todo">[N]</mark>+ to date) and
-                                    c<ul>
-                                <li>
-                                    Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
-                                </li>
-                                <li>
-                                    Drove API modernisation and migration work, retiring legacy patterns and defining clearer contracts for service consumers.
-                                </li>
-                                <li>
-                                    Delivered complex backend features across authorisation, data consistency and platform integrations in a high-ownership environment.
-                                </li>
-                                <li>
-                                    Improved reliability and operational readiness through performance analysis, observability improvements and incident-focused engineering work.
-                                </li>
-                                <li>
-                                    Provided technical guidance across backend initiatives, helping the team navigate ambiguity, align on implementation approaches and maintain engineering quality.
-                                </li>
-                                <li>
-                                    Helped the team to shape our ways of working by improving ownership, collaboration and operational processes across delivery and support work.
-                                </li>
-                                <li>
-                                    Contributed to technical hiring through coding and system design interviews, structured candidate feedback and interview calibrations.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            ReBAC, SpiceDb, GoLang, Gherkin, API design, Kafka, PostgreSQL, Prometheus
-                        </div>
-                    </div>
-
-                    <div class="role-entry">
-                        <div class="job-title">Backend Software Engineer</div>
-                        <div class="job-period">Jan 2024 – Apr 2025</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>
-                                    Drove the design and definition of the application authorization model for service whitelisting
-                                    collaborating with other teams to ensure a unified and long-term approach.
-                                </li>
-                                <li>
-                                    Contributed to a successful migration of a critical company project for both internal and external clients,
-                                    improving performance and maintainability by transitioning to GoLang, from a legacy Elixir
-                                    codebase.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            ReBAC, GoLang, Gherkin, API design, Kafka, PostgreSQL
-                        </div>
-                    </div>
+        <header class="hero">
+            <img src="./images/photo.svg" alt="João Gomes" class="avatar">
+            <div>
+                <h1>João Gomes</h1>
+                <p>Senior Backend Software Engineer · Braga, Portugal</p>
+                <div class="socials">
+                    <a class="social" href="https://github.com/joaonunogomes" target="_blank" rel="noopener">
+                        <img src="./images/github.svg" alt="">GitHub
+                    </a>
+                    <a class="social" href="https://www.linkedin.com/in/joão-gomes-a9387912b/" target="_blank" rel="noopener">
+                        <img src="./images/linkedin.svg" alt="">LinkedIn
+                    </a>
                 </div>
             </div>
+        </header>
 
-            <div class="company-group">
-                <div class="company-header">
-                    <img src="./images/farfetch.svg" alt="Farfetch logo" class="company-logo">
-                    <div class="company-info">
-                        <div class="company-tenure">Sep 2017 – Dec 2023 · 6 yrs 4 mos</div>
-                    </div>
+        <section>
+            <h2>Featured</h2>
+            <a class="featured" href="https://joaonunogomes.github.io/farol/">
+                <img src="./images/farol.svg" alt="Farol logo">
+                <div>
+                    <h3>Farol <span class="badge">2026 – Present</span></h3>
+                    <p>
+                        Self-hosted, file-based API testing client. Requests and environments are stored as
+                        git-friendly YAML files, so your API collections live next to your code and go through
+                        the same review process.
+                    </p>
+                    <span class="cta">Open Farol</span>
                 </div>
-                <div class="company-roles">
-                    <div class="role-entry">
-                        <div class="job-title">Senior Backend Software Engineer</div>
-                        <div class="job-period">Jan 2022 – Dec 2023</div>
-                        <div class="job-description">
-                            <ul>
-                                <li>System and Public API design for checkout and payments boundaries of high availability
-                                    micro-services</li>
-                                <li>Definition of business and tech initiatives alongside tech lead and product manager</li>
-                                <li>Integration with third party payment providers</li>
-                                <li>Implementation of Jenkins declarative CI/CD pipelines</li>
-                                <li>Participation in cross team initiatives such as the breakdown of legacy monolithic service,
-                                    API gateway and authentication gateway</li>
-                                <li>Team members guidance and onboarding of newcomers</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            Solution and API design of distributed, highly available and secure systems, .Net Core, C#,
-                            MongoDB, Azure Kubernetes, Jenkins
+            </a>
+        </section>
+
+        <section>
+            <h2>Other projects</h2>
+            <div class="grid">
+                <a class="card" href="https://play.google.com/store/apps/details?id=com.jogomes.ninewayclimbing" target="_blank" rel="noopener">
+                    <div class="card-head">
+                        <img src="./images/9way.svg" alt="9Way Climbing logo">
+                        <div>
+                            <h3>9Way Climbing</h3>
+                            <div class="period">2020 – Present</div>
                         </div>
                     </div>
+                    <p>Climbing logbook app that tracks personal progress and helps you start fingerboard training with predefined protocols.</p>
+                    <div class="tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">.NET Core</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">GCP</span>
+                    </div>
+                </a>
 
-                    <div class="role-entry">
-                        <div class="job-title">Backend Software Engineer</div>
-                        <div class="job-period">Jan 2020 – Jan 2022</div>
-                        <div class="job-description">
-                            Migration from a legacy monolith to a dockerized micro-services architecture, focused on Checkout
-                            and Payments boundaries, exposing these business layers on a Public Api.
-                        </div>
-                        <div class="tech-stack">
-                            .Net Core, C#, MongoDB, Git, Redis, API Design, Docker, Jenkins
+                <div class="card">
+                    <div class="card-head">
+                        <img src="./images/pagurita.svg" alt="Pagurita logo">
+                        <div>
+                            <h3>Pagurita</h3>
+                            <div class="period">2021 – 2023</div>
                         </div>
                     </div>
-
-                    <div class="role-entry">
-                        <div class="job-title">Junior Software Engineer</div>
-                        <div class="job-period">Sep 2017 – Jan 2020</div>
-                        <div class="job-description">
-                            In house made CMS for all e-commerce business areas and front-office Rest APIs providing content and
-                            business rules to websites.
-                        </div>
-                        <div class="tech-stack">
-                            .Net Core, C#, MongoDB, Git, Redis
-                        </div>
+                    <p>E-commerce platform focused on long-term house renting, from brand definition to backend.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">.NET Core</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Redis</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <footer>
+            © <span id="year"></span> João Gomes
+        </footer>
     </main>
-
-    <aside>
-        <section>
-            <h2>Education</h2>
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/uminho.svg" alt="Universidade do Minho logo" class="company-logo">
-                    </div>
-                    <div class="job-title">Universidade do Minho</div>
-                </div>
-                <div class="job-period">2013 – 2017</div>
-                <div class="job-description">BSc in Computer Science</div>
-            </div>
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/padi.svg" alt="PADI logo" class="company-logo">
-                    </div>
-                    <div class="job-title">PADI</div>
-                </div>
-                <div class="job-period">2018</div>
-                <div class="job-description">Advanced Open Water Diver</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Personal projects</h2>
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/farol.svg" alt="API Client logo" class="nineway-logo">
-                    </div>
-                    <div class="job-title">
-                        <a href="https://joaonunogomes.github.io/farol/" target="_blank" rel="noopener">Farol</a>
-                    </div>
-                </div>
-                <div class="job-period">2026 – Present</div>
-                <div class="job-description">
-                    Self-hosted, file-based API testing client that stores requests and environments as git-friendly YAML files.
-                </div>
-            </div>
-
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/pagurita.svg" alt="Pagurita logo" class="pagurita-logo">
-                    </div>
-                    <div class="job-title">Pagurita</div>
-                </div>
-                <div class="job-period">2021 – 2023</div>
-                <div class="job-description">
-                    E-commerce platform focused on long term house renting
-                </div>
-                <div class="tech-stack">
-                    Brand Definition, NextJS, .Net Core, C#, GPC, MongoDB, Redis
-                </div>
-            </div>
-
-
-            <div class="job-entry">
-                <div class="job-header">
-                    <div class="job-header-content">
-                        <img src="./images/9way.svg" alt="9WayClimbing logo" class="nineway-logo">
-                    </div>
-                    <div class="job-title">
-                        <a href="https://play.google.com/store/apps/details?id=com.jogomes.ninewayclimbing" target="_blank" rel="noopener">9Way Climbing</a>
-                    </div>
-                </div>
-                <div class="job-period">2020 – Present</div>
-                <div class="job-description">
-                    9Way Climbing is a climbing logbook app, that tracks personal progress and helps you start fingerboard training with predefined protocols.
-                </div>
-                <div class="tech-stack">
-                    React Native, .Net Core, C#, GPC, MongoDB, Redis
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill-group">
-                    <div class="skill-group-title">Languages</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">C# / .NET Core</span>
-                        <span class="skill-tag">React</span>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-group-title">Backend &amp; architecture</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">API design</span>
-                        <span class="skill-tag">Distributed systems</span>
-                        <span class="skill-tag">Kafka</span>
-                        <span class="skill-tag">SpiceDB</span>
-                        <span class="skill-tag">Microservices</span>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-group-title">Data</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Redis</span>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-group-title">Infra &amp; tooling</div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Azure</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Prometheus</span>
-                        <span class="skill-tag">Gherkin / BDD</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-
-            <h2>Interests</h2>
-            <div class="interests">
-                <div class="interests-item">Rock climbing</div>
-                <div class="interests-item">Bodyboard</div>
-                <div class="interests-item">Speciality coffee</div>
-                <div class="interests-item">Cooking</div>
-                <div class="interests-item">Travel</div>
-            </div>
-        </section>
-    </aside>
-
-    <button id="downloadCv" class="download-cv" type="button" aria-label="Download CV as PDF">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3v12" />
-            <path d="m7 10 5 5 5-5" />
-            <path d="M5 21h14" />
-        </svg>
-        <span>Download PDF</span>
-    </button>
-
-    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js"></script>
     <script>
-        (function () {
-            const button = document.getElementById('downloadCv');
-            const label = button.querySelector('span');
-            const originalLabel = label.textContent;
-
-            const waitForImages = () => {
-                const imgs = Array.from(document.images);
-                return Promise.all(imgs.map((img) => {
-                    if (img.complete && img.naturalWidth > 0) return Promise.resolve();
-                    return new Promise((resolve) => {
-                        img.addEventListener('load', resolve, { once: true });
-                        img.addEventListener('error', resolve, { once: true });
-                    });
-                }));
-            };
-
-            const HTML2CANVAS_SCALE = 3;
-
-            const extractEmbeddedRaster = (svgText) => {
-                const match = svgText.match(/<image[^>]*?(?:xlink:href|href)\s*=\s*"(data:image\/(?:png|jpeg|jpg|webp)[^"]+)"/i);
-                return match ? match[1] : null;
-            };
-
-            const loadImage = (src) => new Promise((resolve, reject) => {
-                const i = new Image();
-                i.onload = () => resolve(i);
-                i.onerror = () => reject(new Error('Image load failed'));
-                i.src = src;
-            });
-
-            const blobToDataUrl = (blob) => new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
-
-            const renderToTargetSize = (sourceImg, displayWidth, displayHeight) => {
-                const srcAspect = sourceImg.naturalWidth / sourceImg.naturalHeight;
-                const boxAspect = displayWidth / displayHeight;
-                let renderedW, renderedH;
-                if (srcAspect > boxAspect) {
-                    renderedW = displayWidth;
-                    renderedH = displayWidth / srcAspect;
-                } else {
-                    renderedH = displayHeight;
-                    renderedW = displayHeight * srcAspect;
-                }
-
-                const canvasWidth = Math.max(2, Math.round(renderedW * HTML2CANVAS_SCALE));
-                const canvasHeight = Math.max(2, Math.round(renderedH * HTML2CANVAS_SCALE));
-                const canvas = document.createElement('canvas');
-                canvas.width = canvasWidth;
-                canvas.height = canvasHeight;
-                const ctx = canvas.getContext('2d');
-                ctx.imageSmoothingEnabled = true;
-                ctx.imageSmoothingQuality = 'high';
-                ctx.drawImage(sourceImg, 0, 0, canvasWidth, canvasHeight);
-                return canvas.toDataURL('image/png');
-            };
-
-            const inlineImagesAsDataUrls = async () => {
-                const imgs = Array.from(document.querySelectorAll('img'));
-                const originals = new Map();
-
-                await Promise.all(imgs.map(async (img) => {
-                    const src = img.src;
-                    if (!src || src.startsWith('data:')) return;
-
-                    const rect = img.getBoundingClientRect();
-                    const displayWidth = Math.max(2, rect.width);
-                    const displayHeight = Math.max(2, rect.height);
-
-                    try {
-                        const response = await fetch(src);
-                        if (!response.ok) return;
-
-                        let sourceDataUrl;
-                        const isSvg = /\.svg(\?|$)/i.test(src) || (response.headers.get('content-type') || '').includes('svg');
-
-                        if (isSvg) {
-                            const svgText = await response.text();
-                            const embedded = extractEmbeddedRaster(svgText);
-                            if (embedded) {
-                                sourceDataUrl = embedded;
-                            } else {
-                                sourceDataUrl = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgText)));
-                            }
-                        } else {
-                            sourceDataUrl = await blobToDataUrl(await response.blob());
-                        }
-
-                        const sourceImg = await loadImage(sourceDataUrl);
-                        const finalDataUrl = renderToTargetSize(sourceImg, displayWidth, displayHeight);
-
-                        originals.set(img, src);
-                        img.src = finalDataUrl;
-                        await new Promise((resolve) => {
-                            if (img.complete && img.naturalWidth > 0) return resolve();
-                            img.addEventListener('load', resolve, { once: true });
-                            img.addEventListener('error', resolve, { once: true });
-                        });
-                    } catch (err) {
-                        console.warn('Could not process image:', src, err);
-                    }
-                }));
-
-                return originals;
-            };
-
-            const restoreImages = (originals) => {
-                originals.forEach((src, img) => { img.src = src; });
-            };
-
-            const showOverlay = () => {
-                const overlay = document.createElement('div');
-                overlay.id = 'cv-export-overlay';
-                overlay.innerHTML = `
-                    <div class="cv-spinner" aria-hidden="true"></div>
-                    <div class="cv-spinner-label">Preparing your PDF…</div>
-                `;
-                document.documentElement.appendChild(overlay);
-                return overlay;
-            };
-
-            button.addEventListener('click', async () => {
-                if (typeof html2pdf === 'undefined') {
-                    alert('PDF library failed to load. Check your network connection and try again.');
-                    return;
-                }
-
-                if (location.protocol === 'file:') {
-                    alert('Local file:// is not supported for PDF export due to browser security. Please serve the site over HTTP (e.g. `npx serve` or via GitHub Pages).');
-                    return;
-                }
-
-                button.disabled = true;
-                label.textContent = 'Preparing…';
-
-                const overlay = showOverlay();
-                await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-                window.scrollTo(0, 0);
-                document.body.classList.add('is-exporting');
-
-                let originals = new Map();
-
-                try {
-                    await waitForImages();
-                    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-                    originals = await inlineImagesAsDataUrls();
-
-                    await html2pdf()
-                        .set({
-                            margin: [10, 10, 10, 10],
-                            filename: 'Joao-Gomes-CV.pdf',
-                            image: { type: 'png', quality: 1 },
-                            html2canvas: {
-                                scale: 3,
-                                useCORS: true,
-                                allowTaint: false,
-                                backgroundColor: '#ffffff',
-                                letterRendering: true,
-                                imageTimeout: 0,
-                                logging: false,
-                                scrollX: 0,
-                                scrollY: 0,
-                                windowWidth: document.documentElement.clientWidth,
-                                windowHeight: document.documentElement.clientHeight
-                            },
-                            jsPDF: {
-                                unit: 'mm',
-                                format: 'a4',
-                                orientation: 'portrait',
-                                compress: true
-                            },
-                            pagebreak: {
-                                mode: ['css', 'legacy'],
-                                avoid: ['.skill-group', '.tech-stack', '.company-header']
-                            }
-                        })
-                        .from(document.body)
-                        .save();
-                } catch (err) {
-                    console.error('PDF export failed:', err);
-                    alert('PDF generation failed. See console for details.');
-                } finally {
-                    restoreImages(originals);
-                    document.body.classList.remove('is-exporting');
-                    overlay.remove();
-                    label.textContent = originalLabel;
-                    button.disabled = false;
-                }
-            });
-        })();
-
-        (function () {
-            // Reuse the PDF export layout for the browser's own print path.
-            window.addEventListener('beforeprint', () => document.body.classList.add('is-exporting'));
-            window.addEventListener('afterprint', () => document.body.classList.remove('is-exporting'));
-        })();
-
-        (function () {
-            const now = new Date();
-            document.querySelectorAll('.company-tenure[data-start]').forEach((el) => {
-                const target = el.querySelector('.tenure-duration');
-                if (!target) return;
-                const [year, month] = el.dataset.start.split('-').map(Number);
-                if (!year || !month) return;
-                // Inclusive month count, matching LinkedIn-style tenure (Jan 2024 → Jan 2024 = 1 mo).
-                let months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month) + 1;
-                if (months < 1) months = 1;
-                const yrs = Math.floor(months / 12);
-                const mos = months % 12;
-                const parts = [];
-                if (yrs) parts.push(`${yrs} yr${yrs === 1 ? '' : 's'}`);
-                if (mos) parts.push(`${mos} mo${mos === 1 ? '' : 's'}`);
-                target.textContent = parts.join(' ');
-            });
-        })();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 
