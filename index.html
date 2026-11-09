@@ -3,8 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>João Gomes - Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João Gomes – Senior Backend Software Engineer</title>
+    <meta name="description" content="CV of João Gomes, Senior Backend Software Engineer in Braga, Portugal. 8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
+    <meta name="author" content="João Gomes">
+    <link rel="canonical" href="https://joaonunogomes.github.io/">
+    <link rel="icon" type="image/svg+xml" href="./images/photo.svg">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="João Gomes – Senior Backend Software Engineer">
+    <meta property="og:description" content="8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
+    <meta property="og:url" content="https://joaonunogomes.github.io/">
+    <meta property="og:image" content="https://joaonunogomes.github.io/images/photo.svg">
+    <meta property="og:locale" content="en_GB">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="João Gomes – Senior Backend Software Engineer">
+    <meta name="twitter:description" content="8+ years building APIs, authorisation systems and event-driven backends in Go and .NET.">
     <style>
         * {
             box-sizing: border-box;
@@ -166,6 +179,19 @@
             margin-bottom: 30px;
         }
 
+        /* Placeholders for metrics still to be filled in. Remove once replaced. */
+        mark.todo {
+            background: #fff3bf;
+            color: #7a5a00;
+            border-radius: 3px;
+            padding: 0 3px;
+        }
+
+        body.is-exporting mark.todo {
+            background: transparent;
+            color: inherit;
+        }
+
         .company-header {
             display: flex;
             align-items: center;
@@ -228,29 +254,35 @@
         .skills-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
             margin-bottom: 30px;
         }
 
-        .skill-item {
-            color: rgba(33, 33, 33, 1);
-            font-weight: bolder;
+        .skill-group-title {
+            color: rgba(33, 33, 33, 0.55);
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 6px;
+        }
+
+        .skill-tags {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
-        .skill-bar {
-            height: 6px;
-            background: #eee;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: #4285f4;
-            border-radius: 3px;
+        .skill-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: #f1f3f7;
+            color: #2d2d2d;
+            font-size: 0.85em;
+            font-weight: 600;
+            line-height: 1.4;
+            white-space: nowrap;
         }
 
         .interests {
@@ -438,9 +470,67 @@
             display: none;
         }
 
+        /*
+         * Print. The export JS toggles `is-exporting` on beforeprint/afterprint,
+         * so every body.is-exporting rule below also applies to Cmd+P / Save as PDF.
+         * This block holds what only the browser's own print path needs.
+         */
+        @page {
+            size: A4 portrait;
+            margin: 12mm;
+        }
+
         @media print {
-            .download-cv {
+            html, body {
+                background: #fff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .download-cv,
+            #cv-export-overlay {
                 display: none !important;
+            }
+
+            body {
+                padding: 0 !important;
+                max-width: none !important;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            p, li {
+                orphans: 3;
+                widows: 3;
+            }
+
+            h2 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .company-header,
+            .role-entry .job-title,
+            .job-header {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .skill-group,
+            .job-entry,
+            .tech-stack,
+            .job-description li {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .social-link:hover {
+                background: none;
+                box-shadow: none;
+                transform: none;
             }
         }
 
@@ -621,20 +711,19 @@
             object-fit: contain;
         }
 
-        body.is-exporting .skill-bar {
-            height: 8px;
-            background: #e3e7ef;
-            border-radius: 4px;
-            overflow: hidden;
+        body.is-exporting .skills-list {
+            gap: 8px;
+            margin-bottom: 14px;
         }
 
-        body.is-exporting .skill-progress {
-            height: 8px;
-            background: #4285f4;
-            border-radius: 4px;
+        body.is-exporting .skill-tag {
+            padding: 1px 7px;
+            font-size: 8.5pt;
+            border: 1px solid #d9dee8;
+            background: #f5f7fa;
         }
 
-        body.is-exporting .skill-item,
+        body.is-exporting .skill-group,
         body.is-exporting .job-description li,
         body.is-exporting .tech-stack,
         body.is-exporting .company-header {
@@ -754,6 +843,24 @@
                         <div class="job-period">Apr 2025 – Present</div>
                         <div class="job-description">
                             <ul>
+                                <li>
+                                    Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
+                                </li>
+                                <li>
+                                </li>
+                                <li>
+                                    Cut <mark class="todo">[p99 latency / error rate / incident count]</mark> by
+                                    <mark class="todo">[X%]</mark> through performance analysis, targeted observability
+                                    (Prometheus dashboards and alerts) and follow-through on incident actions.
+                                </li>
+                                <li>
+                                    Act as technical reference for the team: drive design reviews, unblock ambiguous work and
+                                    mentor <mark class="todo">[N]</mark> engineers; introduced
+                                    <mark class="todo">[a process, e.g. on-call rotation / ADRs]</mark> that is now the team default.
+                                </li>
+                                <li>
+                                    Run coding and system-design interviews (<mark class="todo">[N]</mark>+ to date) and
+                                    c<ul>
                                 <li>
                                     Owned the design and evolution of cross-team access-control capabilities for a core backend platform, enabling more flexible and scalable role and permission models.
                                 </li>
@@ -943,48 +1050,45 @@
         <section>
             <h2>Skills</h2>
             <div class="skills-list">
-                <div class="skill-item">
-                    <div>.Net core</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Languages</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">C# / .NET Core</span>
+                        <span class="skill-tag">React</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div>GoLang</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Backend &amp; architecture</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">API design</span>
+                        <span class="skill-tag">Distributed systems</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">SpiceDB</span>
+                        <span class="skill-tag">Microservices</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div>API Design</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Data</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div>Solution Design</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 65%"></div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Infra &amp; tooling</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Gherkin / BDD</span>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div>Docker</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 50%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div>Next JS</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 40%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div>React</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 35%"></div>
-                    </div>
-                </div>
+            </div>
         </section>
         <section>
 
@@ -1024,28 +1128,6 @@
                         img.addEventListener('error', resolve, { once: true });
                     });
                 }));
-            };
-
-            const bakeSkillBars = () => {
-                document.querySelectorAll('.skill-bar').forEach((bar) => {
-                    const progress = bar.querySelector('.skill-progress');
-                    if (!progress) return;
-                    const pct = parseFloat(progress.style.width) || 0;
-                    const px = bar.getBoundingClientRect().width * (pct / 100);
-                    if (px > 0) {
-                        progress.dataset.originalWidth = progress.style.width;
-                        progress.style.width = px + 'px';
-                    }
-                });
-            };
-
-            const restoreSkillBars = () => {
-                document.querySelectorAll('.skill-progress').forEach((progress) => {
-                    if (progress.dataset.originalWidth) {
-                        progress.style.width = progress.dataset.originalWidth;
-                        delete progress.dataset.originalWidth;
-                    }
-                });
             };
 
             const HTML2CANVAS_SCALE = 3;
@@ -1181,7 +1263,6 @@
                 try {
                     await waitForImages();
                     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-                    bakeSkillBars();
                     originals = await inlineImagesAsDataUrls();
 
                     await html2pdf()
@@ -1210,7 +1291,7 @@
                             },
                             pagebreak: {
                                 mode: ['css', 'legacy'],
-                                avoid: ['.skill-item', '.tech-stack', '.company-header']
+                                avoid: ['.skill-group', '.tech-stack', '.company-header']
                             }
                         })
                         .from(document.body)
@@ -1220,13 +1301,18 @@
                     alert('PDF generation failed. See console for details.');
                 } finally {
                     restoreImages(originals);
-                    restoreSkillBars();
                     document.body.classList.remove('is-exporting');
                     overlay.remove();
                     label.textContent = originalLabel;
                     button.disabled = false;
                 }
             });
+        })();
+
+        (function () {
+            // Reuse the PDF export layout for the browser's own print path.
+            window.addEventListener('beforeprint', () => document.body.classList.add('is-exporting'));
+            window.addEventListener('afterprint', () => document.body.classList.remove('is-exporting'));
         })();
 
         (function () {
