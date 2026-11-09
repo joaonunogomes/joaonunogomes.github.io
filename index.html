@@ -745,7 +745,7 @@
                 <div class="company-header">
                     <img src="./images/teya.svg" alt="Teya logo" class="company-logo">
                     <div class="company-info">
-                        <div class="company-tenure">Jan 2024 – Present · 2 yrs 6 mos</div>
+                        <div class="company-tenure" data-start="2024-01">Jan 2024 – Present · <span class="tenure-duration">2 yrs 6 mos</span></div>
                     </div>
                 </div>
                 <div class="company-roles">
@@ -1226,6 +1226,25 @@
                     label.textContent = originalLabel;
                     button.disabled = false;
                 }
+            });
+        })();
+
+        (function () {
+            const now = new Date();
+            document.querySelectorAll('.company-tenure[data-start]').forEach((el) => {
+                const target = el.querySelector('.tenure-duration');
+                if (!target) return;
+                const [year, month] = el.dataset.start.split('-').map(Number);
+                if (!year || !month) return;
+                // Inclusive month count, matching LinkedIn-style tenure (Jan 2024 → Jan 2024 = 1 mo).
+                let months = (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month) + 1;
+                if (months < 1) months = 1;
+                const yrs = Math.floor(months / 12);
+                const mos = months % 12;
+                const parts = [];
+                if (yrs) parts.push(`${yrs} yr${yrs === 1 ? '' : 's'}`);
+                if (mos) parts.push(`${mos} mo${mos === 1 ? '' : 's'}`);
+                target.textContent = parts.join(' ');
             });
         })();
     </script>
